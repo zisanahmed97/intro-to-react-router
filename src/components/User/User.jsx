@@ -1,7 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const User = ({user}) => {
+   const navigate = useNavigate();
+   const handleNavigate =()=>{
+    navigate(`/users/${user.id}`)
+   }
+
+
+
+
     console.log(user);
     const style ={
         border:"2px solid red",
@@ -17,6 +25,8 @@ const User = ({user}) => {
             <br />
 
             <Link to={`/users/${user.id}`}>Show details</Link>
+
+            <button onClick={handleNavigate}>Detail of : {user.id} </button>
         </div>
     );
 };
